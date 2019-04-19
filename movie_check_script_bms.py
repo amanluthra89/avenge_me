@@ -1,4 +1,4 @@
-import urllib2
+import urllib
 from bs4 import BeautifulSoup
 import time
 import requests
@@ -24,8 +24,8 @@ def telegram_bot_sendtext(msg):
     response = requests.get(send_text)
     return response.json()
 
-req = urllib2.Request(site)
-page = urllib2.urlopen(req)
+req = urllib.Request(site)
+page = urllib.urlopen(req)
 soup = BeautifulSoup(page)
 soup2 = soup.find_all('div', {'action-book'})
 
