@@ -4,7 +4,7 @@ import time
 import requests
 import random
 
-city_arr = ["mumbai", "bengaluru", "kolhapur"]
+city_arr = ["mumbai"]
 site = "https://in.bookmyshow.com/mumbai/movies/avengers-endgame/ET00090482"
 
 delay = 30
@@ -47,4 +47,13 @@ while True:
           message = message + ' --- 3D'
           break
     print(message)
+    site = "https://in.bookmyshow.com/buytickets/avengers-endgame-bengaluru/movie-bang-ET00100668-MT/20190426"
+    req = urllib.Request(site, headers={'User-Agent': 'Mozilla/5.0'})
+    page = urllib.urlopen(req)
+    soup = BeautifulSoup(page)
+    s = soup.find_all('div', {'__name'})
+    for venue in s:
+        string_venue = str(venue.find('a').contents[1])
+        if 'PVR' in string_venue:
+            telegram_bot_sendtext("PVR BLR IMAX DEFCON RED")
   time.sleep(delay)
