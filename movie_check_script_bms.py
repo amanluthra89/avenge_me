@@ -7,7 +7,7 @@ import random
 city_arr = ["mumbai", "bengaluru", "kolhapur"]
 site = "https://in.bookmyshow.com/mumbai/movies/avengers-endgame/ET00090482"
 
-delay = 3600
+delay = 900
 SAD_DIALOGUES = ["I don't feel so good Mr Stark.", "I am Groot", "You are not the only one cursed with knowledge.", 
 "I hope they remember you", "All words are made up.", "When Im done, half of humanity will still exist.", 
 "I assure you, brother, the sun will shine on us again.", "The hardest choices require the strongest of wills.", 
@@ -35,6 +35,6 @@ while True:
     for div in soup2:
       if(div.find('a') != None):
         if 'Book' in div.find('a').contents[0]:
-          message = "Tickets available! --- We're in the Endgame now!! Go Go Go!!!"
+          message = city + " -- Tickets available! --- We're in the Endgame now!! Go Go Go!!!"
     telegram_bot_sendtext(message)
   time.sleep(delay)
