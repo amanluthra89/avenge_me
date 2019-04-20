@@ -5,8 +5,6 @@ import requests
 import random
 
 site = "https://in.bookmyshow.com/movies/avengers-endgame/ET00090482"
-kolhapur_site = "https://in.bookmyshow.com/movies/avengers-endgame/ET00090482"
-bangalore_site = "https://in.bookmyshow.com/movies/avengers-endgame/ET00090482"
 delay = 3600
 SAD_DIALOGUES = ["I don't feel so good Mr Stark.", "I am Groot", "You are not the only one cursed with knowledge.", 
 "I hope they remember you", "All words are made up.", "When Im done, half of humanity will still exist.", 
@@ -18,8 +16,8 @@ SAD_DIALOGUES = ["I don't feel so good Mr Stark.", "I am Groot", "You are not th
 "Fourteen million six hundred and five."]
 
 def telegram_bot_sendtext(msg):
-    bot_token = '654480132:AAElQU1AhEz269a-dADYsBDi7fw04YnMiPg'
-    bot_chatID = '-320332082'
+    bot_token = 'TELEGRAM_BOT_TOKEN'
+    bot_chatID = 'CHAT_ID'
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + msg
     response = requests.get(send_text)
     return response.json()
