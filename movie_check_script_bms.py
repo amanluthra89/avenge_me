@@ -36,6 +36,5 @@ while True:
       if(div.find('a') != None):
         if 'Book' in div.find('a').contents[0]:
           message = "Tickets available! --- We're in the Endgame now!! Go Go Go!!!"
-    # telegram_bot_sendtext(message)
-    print(message)
+    telegram_bot_sendtext(message)
   time.sleep(delay)
