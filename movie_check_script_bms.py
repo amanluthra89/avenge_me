@@ -7,7 +7,7 @@ import random
 city_arr = ["mumbai", "bengaluru", "kolhapur"]
 site = "https://in.bookmyshow.com/mumbai/movies/avengers-endgame/ET00090482"
 
-delay = 120
+delay = 30
 SAD_DIALOGUES = ["I don't feel so good Mr Stark.", "I am Groot", "You are not the only one cursed with knowledge.", 
 "I hope they remember you", "All words are made up.", "When Im done, half of humanity will still exist.", 
 "I assure you, brother, the sun will shine on us again.", "The hardest choices require the strongest of wills.", 
@@ -41,9 +41,10 @@ while True:
       for i in div.find_all('a'):
         if 'IMAX' in i.contents[0]:
           message = message + ' --- IMAX!!!!'
+          telegram_bot_sendtext(message)
           break
         if '3D' in div.find('a').contents[0]:
           message = message + ' --- 3D'
           break
-    telegram_bot_sendtext(message)
+    print(message)
   time.sleep(delay)
