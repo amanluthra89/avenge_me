@@ -27,7 +27,7 @@ def telegram_bot_sendtext(msg):
 while True:
   for city in city_arr:
     site = "https://in.bookmyshow.com/"+city+"/movies/avengers-endgame/ET00090482"
-    req = urllib.Request(site)
+    req = urllib.Request(site, headers={'User-Agent': 'Mozilla/5.0'})
     page = urllib.urlopen(req)
     soup = BeautifulSoup(page)
     soup2 = soup.find_all('div', {'action-book'})
