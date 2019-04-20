@@ -4,7 +4,9 @@ import time
 import requests
 import random
 
-site = "https://in.bookmyshow.com/movies/avengers-endgame/ET00090482"
+city_arr = ["mumbai", "bengaluru", "kolhapur"]
+site = "https://in.bookmyshow.com/mumbai/movies/avengers-endgame/ET00090482"
+
 delay = 3600
 SAD_DIALOGUES = ["I don't feel so good Mr Stark.", "I am Groot", "You are not the only one cursed with knowledge.", 
 "I hope they remember you", "All words are made up.", "When Im done, half of humanity will still exist.", 
@@ -16,22 +18,24 @@ SAD_DIALOGUES = ["I don't feel so good Mr Stark.", "I am Groot", "You are not th
 "Fourteen million six hundred and five."]
 
 def telegram_bot_sendtext(msg):
-    bot_token = 'TELEGRAM_BOT_TOKEN'
-    bot_chatID = 'CHAT_ID'
+    bot_token = '654480132:AAElQU1AhEz269a-dADYsBDi7fw04YnMiPg'
+    bot_chatID = '-320332082'
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + msg
     response = requests.get(send_text)
     return response.json()
 
-req = urllib.Request(site)
-page = urllib.urlopen(req)
-soup = BeautifulSoup(page)
-soup2 = soup.find_all('div', {'action-book'})
-
 while True:
-  message = random.choice(SAD_DIALOGUES) + " --- No tickets yet."
-  for div in soup2:
-    if(div.find('a') != None):
-      if 'Book' in div.find('a').contents[0]:
-        message = "Tickets available! --- We're in the Endgame now!! Go Go Go!!!"
-  telegram_bot_sendtext(message)
+  for city in city_arr:
+    site = "https://in.bookmyshow.com/"+city+"/movies/avengers-endgame/ET00090482"
+    req = urllib.Request(site)
+    page = urllib.urlopen(req)
+    soup = BeautifulSoup(page)
+    soup2 = soup.find_all('div', {'action-book'})
+    message = city + " - " + random.choice(SAD_DIALOGUES) + " --- No tickets yet."
+    for div in soup2:
+      if(div.find('a') != None):
+        if 'Book' in div.find('a').contents[0]:
+          message = "Tickets available! --- We're in the Endgame now!! Go Go Go!!!"
+    # telegram_bot_sendtext(message)
+    print(message)
   time.sleep(delay)
