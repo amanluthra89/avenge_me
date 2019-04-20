@@ -45,6 +45,5 @@ while True:
         if '3D' in div.find('a').contents[0]:
           message = message + ' --- 3D'
           break
-    # telegram_bot_sendtext(message)
-    print(message)
+    telegram_bot_sendtext(message)
   time.sleep(delay)
