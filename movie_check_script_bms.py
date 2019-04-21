@@ -35,16 +35,16 @@ while True:
       print(string_venue)
       if 'PVR' in string_venue:
           telegram_bot_sendtext("PVR BLR IMAX DEFCON RED")
-  site = "https://in.bookmyshow.com/buytickets/avengers-endgame-kolhapur/movie-kolh-ET00100559-MT/20190426"
-  req = urllib.Request(site, headers={'User-Agent': 'Mozilla/5.0'})
-  page = urllib.urlopen(req)
-  soup = BeautifulSoup(page)
-  s = soup.find_all('div', {'__name'})
-  for venue in s:
-      string_venue = str(venue.find('a').contents[1])
-      print(string_venue)
-      if 'PVR' in string_venue:
-          telegram_bot_sendtext("PVR KOLHAPUR AVAILABLE - GO GO GO")    
+  # site = "https://in.bookmyshow.com/buytickets/avengers-endgame-kolhapur/movie-kolh-ET00100559-MT/20190426"
+  # req = urllib.Request(site, headers={'User-Agent': 'Mozilla/5.0'})
+  # page = urllib.urlopen(req)
+  # soup = BeautifulSoup(page)
+  # s = soup.find_all('div', {'__name'})
+  # for venue in s:
+  #     string_venue = str(venue.find('a').contents[1])
+  #     print(string_venue)
+  #     if 'PVR' in string_venue:
+  #         telegram_bot_sendtext("PVR KOLHAPUR AVAILABLE - GO GO GO")    
   time.sleep(delay)
   # for city in city_arr:
   #   site = "https://in.bookmyshow.com/"+city+"/movies/avengers-endgame/ET00090482"
