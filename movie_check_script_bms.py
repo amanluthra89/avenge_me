@@ -33,8 +33,8 @@ while True:
   for venue in s:
       string_venue = str(venue.find('a').contents[1])
       print(string_venue)
-      if 'PVR' in string_venue:
-          telegram_bot_sendtext("PVR BLR IMAX DEFCON RED")
+      if 'PVR' in string_venue and 'Vega' in string_venue:
+          telegram_bot_sendtext("PVR BLR VEGA IMAX DEFCON RED")
   # site = "https://in.bookmyshow.com/buytickets/avengers-endgame-kolhapur/movie-kolh-ET00100559-MT/20190426"
   # req = urllib.Request(site, headers={'User-Agent': 'Mozilla/5.0'})
   # page = urllib.urlopen(req)
