@@ -140,6 +140,6 @@ while True:
         telegram_bot_sendtext(message)
         break
   print(message)
-  # telegram_bot_sendtext(message)
+  telegram_bot_sendtext("testing  -- " + message)
   time.sleep(delay)
   
