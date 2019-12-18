@@ -137,7 +137,7 @@ while True:
         break
       if '3D' in div.find('a').contents[0]:
         message = message + ' --- 3D'
-        telegram_bot_sendtext(message)
+        # telegram_bot_sendtext(message)
         break
   print(message)
   # telegram_bot_sendtext(message)
